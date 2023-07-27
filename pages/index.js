@@ -39,7 +39,7 @@ function HomePage(props) {
   return <MeetupList meetups={props.meetups} />;
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps(context) {
   return {
     props: {
       meetups: DUMMY_MEETUPS,
@@ -47,5 +47,13 @@ export async function getStaticProps() {
     revalidate: 3600,
   };
 }
+
+// export async function getStaticProps() {
+//   return {
+//     props: {
+//       meetups: DUMMY_MEETUPS,
+//     },
+//   };
+// }
 
 export default HomePage;
